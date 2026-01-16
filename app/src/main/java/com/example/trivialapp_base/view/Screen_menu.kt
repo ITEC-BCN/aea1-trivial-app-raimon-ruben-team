@@ -46,7 +46,7 @@ fun MenuScreen(navController: NavController, viewModel: GameViewModel) {
                 .clickable { navController.navigate(Routes.Game.route) })
     }
 
-@Composable
+    @Composable
     fun MenuDificultad() {
         var expanded by remember { mutableStateOf(false) }
         var dificultadSeleccionada by remember { mutableStateOf("Selecciona dificultad") }
