@@ -37,15 +37,10 @@ import com.example.trivialapp_base.viewmodel.GameViewModel
 
 @Composable
 fun MenuScreen(navController: NavController, viewModel: GameViewModel) {
-    Box(
-        modifier = Modifier.fillMaxSize().background(Color.Green)) {
-        Text(
-            text = "Pantalla 1",
-            modifier = Modifier
-                .align(Alignment.Center)
-                .clickable { navController.navigate(Routes.Game.route) })
-    }
-
+Column(
+    modifier = Modifier
+        (Alignment.Center
+) { }
     @Composable
     fun MenuDificultad() {
         var expanded by remember { mutableStateOf(false) }
@@ -74,6 +69,13 @@ fun MenuScreen(navController: NavController, viewModel: GameViewModel) {
                         }
                     )
                 }
+            }
+            Button(
+                onClick = { navController.navigate("game") },
+                modifier = Modifier
+                    .align(Alignment.Center)
+            ) {
+                Text(text = "Empezar")
             }
         }
     }
