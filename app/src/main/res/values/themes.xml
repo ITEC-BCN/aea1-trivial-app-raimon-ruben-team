@@ -2,9 +2,7 @@
 <resources>
 
 
-    <style name="Theme.TrivialAPP_Base" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenAnimatedIcon">@drawable/trivialimg</item>
-    </style>
+
 
 
     <style name="Theme.TrivialAPP_Base" parent="Theme.SplashScreen">

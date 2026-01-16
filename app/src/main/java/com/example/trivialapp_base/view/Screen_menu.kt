@@ -1,5 +1,6 @@
 package com.example.trivialapp_base.view
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -16,6 +17,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.OutlinedTextField
@@ -38,44 +40,30 @@ import com.example.trivialapp_base.viewmodel.GameViewModel
 @Composable
 fun MenuScreen(navController: NavController, viewModel: GameViewModel) {
     Box(
-        modifier = Modifier.fillMaxSize().background(Color.Green)) {
-        Text(
-            text = "Pantalla 1",
+        modifier = Modifier.fillMaxSize().background(Color.Yellow)) {
+        Column(modifier = Modifier.align(Alignment.Center)) {
+            Text("Text line 1", Modifier.background(Color.Cyan).weight(1f))
+            Text("Text line 2", Modifier.background(Color.Yellow).weight(1f))
+            Text("Text line 3", Modifier.background(Color.Green).weight(1f))
+            Text("Text line 4", Modifier.background(Color.Magenta).weight(1f))
+            Text("Text line 5", Modifier.background(Color.Gray).weight(1f))
+        }
+        Button(
+            onClick = {navController.navigate(Routes.Game.route)},
             modifier = Modifier
                 .align(Alignment.Center)
-                .clickable { navController.navigate(Routes.Game.route) })
-    }
-
-    @Composable
-    fun MenuDificultad() {
-        var expanded by remember { mutableStateOf(false) }
-        var dificultadSeleccionada by remember { mutableStateOf("Selecciona dificultad") }
-
-        val dificultades = listOf("Fácil", "Medio", "Difícil")
-
-        Column {
-            Button(onClick = { expanded = true }) {
-                Text(dificultadSeleccionada)
-            }
-
-            DropdownMenu(
-                expanded = expanded,
-                onDismissRequest = { expanded = false }
-            ) {
-                dificultades.forEach { dificultad ->
-                    DropdownMenuItem(
-                        text = { Text(dificultad) },
-                        onClick = {
-                            dificultadSeleccionada = dificultad
-                            expanded = false
-
-                            // Lógica del trivial
-                            println("Dificultad seleccionada: ${dificultad.lowercase()}")
-                        }
-                    )
-                }
-            }
+                .clickable { navController.navigate(Routes.Game.route) },
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.Blue,
+                contentColor = Color.White
+            ),
+            border = BorderStroke(5.dp, Color.Green)
+        ) {
+            Text(text = "Push")
         }
+
+
+
     }
 
 }
