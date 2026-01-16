@@ -19,6 +19,7 @@ import com.example.trivialapp_base.ui.theme.TrivialAPP_BaseTheme
 import com.example.trivialapp_base.view.GameScreen
 import com.example.trivialapp_base.view.MenuScreen
 import com.example.trivialapp_base.view.ResultScreen
+import com.example.trivialapp_base.view.SplashScreen
 import com.example.trivialapp_base.viewmodel.GameViewModel
 
 class MainActivity : ComponentActivity() {
@@ -39,6 +40,7 @@ class MainActivity : ComponentActivity() {
                     startDestination = Routes.Menu.route
                 )
                 {
+                    composable(Routes.Splash.route) { SplashScreen(navigationController) }
                     composable(Routes.Game.route) { GameScreen(navigationController, gameViewModel) }
                     composable(Routes.Menu.route) { MenuScreen(navigationController, gameViewModel) }
                     composable(Routes.Result.route) { ResultScreen(navigationController, gameViewModel) }
