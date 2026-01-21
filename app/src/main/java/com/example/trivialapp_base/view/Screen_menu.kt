@@ -1,5 +1,7 @@
 package com.example.trivialapp_base.view
 
+import android.R.attr.fontWeight
+import android.R.attr.text
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -22,48 +24,104 @@ import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import com.example.trivialapp_base.R
 import com.example.trivialapp_base.Routes
+import com.example.trivialapp_base.model.Pregunta
 import com.example.trivialapp_base.viewmodel.GameViewModel
 
 @Composable
 fun MenuScreen(navController: NavController, viewModel: GameViewModel) {
     Box(
         modifier = Modifier.fillMaxSize().background(Color.Yellow)) {
-        Column(modifier = Modifier.align(Alignment.Center)) {
-            Text("Text line 1", Modifier.background(Color.Cyan).weight(1f))
-            Text("Text line 2", Modifier.background(Color.Yellow).weight(1f))
-            Text("Text line 3", Modifier.background(Color.Green).weight(1f))
-            Text("Text line 4", Modifier.background(Color.Magenta).weight(1f))
-            Text("Text line 5", Modifier.background(Color.Gray).weight(1f))
+        Column(modifier = Modifier.align(Alignment.Center), horizontalAlignment = Alignment.CenterHorizontally) {
+            Text("Trivial Porsuit", fontSize = 32.sp, fontWeight = FontWeight.Bold)
+
+            Image(
+                painter = painterResource(id = R.drawable.trivialimg),
+                contentDescription = "Logo",
+                modifier = Modifier.size(200.dp),
+                contentScale = ContentScale.Crop
+            )
+            BotonDesplegable(viewModel)
+            Button(
+                onClick = {navController.navigate(Routes.Game.route)},
+                shape = RoundedCornerShape(10.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color.Blue,
+                    contentColor = Color.White
+                )
+
+
+            ) {
+                Text(text = "New Game")
+            }
+
+
         }
+    }
+}
+@Composable
+fun BotonDesplegable(viewModel: GameViewModel) {
+    var expanded by remember { mutableStateOf(false)}
+    Box {
+
         Button(
-            onClick = {navController.navigate(Routes.Game.route)},
-            modifier = Modifier
-                .align(Alignment.Center)
-                .clickable { navController.navigate(Routes.Game.route) },
+            onClick = { expanded = true },
+            shape = RoundedCornerShape(10.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color.Blue,
                 contentColor = Color.White
-            ),
-            border = BorderStroke(5.dp, Color.Green)
+            )
+
+
         ) {
-            Text(text = "Push")
+            Text("Difficulty: ${viewModel.dificultadSeleccionada}")
         }
 
+        DropdownMenu(
+            expanded = expanded,
+            onDismissRequest = { expanded = false},
+            modifier = Modifier.background(Color.White)
+        ) {
+            DropdownMenuItem(
+                text = { Text("Easy") },
+                onClick = {
+                    viewModel.setDificultad("Easy")
+                    expanded = false
+                }
+            )
 
+            DropdownMenuItem(
+                text = { Text("Average") },
+                onClick = {
+                    viewModel.setDificultad("Average")
+                    expanded = false
+                }
+            )
 
+            DropdownMenuItem(
+                text = { Text("Hard") },
+                onClick = {
+                    viewModel.setDificultad("Hard")
+                    expanded = false
+                }
+            )
+        }
     }
-
 }

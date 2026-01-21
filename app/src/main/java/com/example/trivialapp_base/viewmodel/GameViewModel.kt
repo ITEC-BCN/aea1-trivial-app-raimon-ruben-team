@@ -29,7 +29,7 @@ class GameViewModel : ViewModel() {
     var juegoTerminado by mutableStateOf(false)
         private set
 
-    var dificultadSeleccionada by mutableStateOf("Facil")
+    var dificultadSeleccionada by mutableStateOf("Empty")
         private set
 
     private var timer: CountDownTimer? = null
