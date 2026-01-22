@@ -8,6 +8,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.trivialapp_base.model.Pregunta
+import com.example.trivialapp_base.model.ProveedorPreguntas
 
 class GameViewModel : ViewModel() {
     private var preguntasPartida: List<Pregunta> = emptyList()
@@ -39,15 +40,34 @@ class GameViewModel : ViewModel() {
         dificultadSeleccionada = dificultad // Sense .value!
     }
     fun iniciarJuego() {
+        preguntasPartida = ProveedorPreguntas.obtenerPreguntas().filter{ it.dificultad == dificultadSeleccionada }
+        indicePreguntaActual = 0
+        puntuacion = 0
+        juegoTerminado = false
+        cargarSiguientePregunta()
     }
 
     private fun cargarSiguientePregunta() {
+        preguntaActual = preguntasPartida[indicePreguntaActual]
+        respuestasMezcladas = listOf(
+            preguntaActual!!.respuesta1,
+            preguntaActual!!.respuesta2,
+            preguntaActual!!.respuesta3,
+            preguntaActual!!.respuesta4
+        ).shuffled()
+        avanzarRonda()
     }
 
     fun responderPregunta(respuestaUsuario: String) {
+        avanzarRonda()
+        if (respuestaUsuario == preguntaActual!!.respuestaCorrecta){
+            puntuacion++
+        }
+
     }
 
     private fun avanzarRonda() {
+        indicePreguntaActual++
     }
 
     private fun iniciarTimer() {

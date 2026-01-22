@@ -60,7 +60,10 @@ fun MenuScreen(navController: NavController, viewModel: GameViewModel) {
             )
             BotonDesplegable(viewModel)
             Button(
-                onClick = {navController.navigate(Routes.Game.route)},
+                onClick = {
+                    viewModel.iniciarJuego()
+                    navController.navigate(Routes.Game.route)
+                },
                 shape = RoundedCornerShape(10.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color.Blue,

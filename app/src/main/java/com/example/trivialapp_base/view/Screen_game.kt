@@ -28,11 +28,14 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
     Box(modifier = Modifier.fillMaxSize().background(Color.Yellow)) {
         Column(modifier = Modifier.align(Alignment.Center), horizontalAlignment = Alignment.CenterHorizontally)
         {
-        Text(text = "Round",)
-        Text(text = "Question 1: ")
+        Text(text = "Round: ${viewModel.indicePreguntaActual}/10")
+        Text(text = "Question: ${viewModel.preguntaActual!!.pregunta}")
             Row{
                 Button(
-                    onClick = {navController.navigate(Routes.Result.route)},
+                    onClick = {
+                        viewModel.responderPregunta(viewModel.respuestasMezcladas[0])
+
+                    },
                     shape = RoundedCornerShape(10.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color.Blue,
@@ -40,11 +43,14 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
                     )
 
                 ) {
-                    Text(text = "New Game")
+                    Text(text = viewModel.respuestasMezcladas[0])
                 }
                 Spacer(modifier = Modifier.width(16.dp))
                 Button(
-                    onClick = {navController.navigate(Routes.Result.route)},
+                    onClick = {
+                        viewModel.responderPregunta(viewModel.respuestasMezcladas[1])
+
+                    },
                     shape = RoundedCornerShape(10.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color.Blue,
@@ -52,13 +58,16 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
                     )
 
                 ) {
-                    Text(text = "New Game")
+                    Text(text = viewModel.respuestasMezcladas[1])
                 }
             }
             Spacer(modifier = Modifier.height(16.dp))
             Row{
                 Button(
-                    onClick = {navController.navigate(Routes.Result.route)},
+                    onClick = {
+                        viewModel.responderPregunta(viewModel.respuestasMezcladas[2])
+
+                    },
                     shape = RoundedCornerShape(10.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color.Blue,
@@ -66,11 +75,14 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
                     )
 
                 ) {
-                    Text(text = "New Game")
+                    Text(text = viewModel.respuestasMezcladas[2])
                 }
                 Spacer(modifier = Modifier.width(16.dp))
                 Button(
-                    onClick = {navController.navigate(Routes.Result.route)},
+                    onClick = {
+                        viewModel.responderPregunta(viewModel.respuestasMezcladas[3])
+
+                    },
                     shape = RoundedCornerShape(10.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color.Blue,
@@ -78,7 +90,7 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
                     )
 
                 ) {
-                    Text(text = "New Game")
+                    Text(text = viewModel.respuestasMezcladas[3])
                 }
             }
         }
