@@ -22,7 +22,7 @@ object ProveedorPreguntas {
             Pregunta("¿Planeta más grande?", "Ciencia", "Medio", "Tierra", "Marte", "Júpiter", "Saturno", "Júpiter"),
             Pregunta("¿Año descubrimiento América?", "Historia", "Medio", "1492", "1500", "1485", "1992", "1492"),
             Pregunta("¿Elemento químico Au?", "Química", "Dificil", "Plata", "Oro", "Cobre", "Aluminio", "Oro"),
-            Pregunta("¿Autor del Quijote?", "Literatura", "Facil", "Cervantes", "Quevedo", "Lope", "Góngora", "Cervantes"),
+            Pregunta("¿Autor del Quijote?", "Literatura", "Easy", "Cervantes", "Quevedo", "Lope", "Góngora", "Cervantes"),
             Pregunta("¿Velocidad de la luz?", "Física", "Dificil", "300.000 km/s", "150.000 km/s", "1000 km/s", "Mach 1", "300.000 km/s"),
             Pregunta("¿Moneda de Japón?", "Economía", "Medio", "Yuan", "Won", "Yen", "Dólar", "Yen"),
             Pregunta("¿Campeón mundial fútbol 2010?", "Deportes", "Easy", "Brasil", "Alemania", "España", "Italia", "España"),
