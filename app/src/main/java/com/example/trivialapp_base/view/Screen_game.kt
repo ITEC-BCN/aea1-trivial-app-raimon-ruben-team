@@ -15,6 +15,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -25,16 +26,19 @@ import com.example.trivialapp_base.viewmodel.GameViewModel
 
 @Composable
 fun GameScreen(navController: NavController, viewModel: GameViewModel) {
+
     Box(modifier = Modifier.fillMaxSize().background(Color.Yellow)) {
         Column(modifier = Modifier.align(Alignment.Center), horizontalAlignment = Alignment.CenterHorizontally)
         {
-        Text(text = "Round: ${viewModel.indicePreguntaActual}/10")
+        Text(text = "Round: ${viewModel.indicePreguntaActual + 1}/10")
         Text(text = "Question: ${viewModel.preguntaActual!!.pregunta}")
             Row{
                 Button(
                     onClick = {
                         viewModel.responderPregunta(viewModel.respuestasMezcladas[0])
-
+                        if (viewModel.juegoTerminado){
+                            navController.navigate(Routes.Result.route)
+                        }
                     },
                     shape = RoundedCornerShape(10.dp),
                     colors = ButtonDefaults.buttonColors(
@@ -49,7 +53,9 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
                 Button(
                     onClick = {
                         viewModel.responderPregunta(viewModel.respuestasMezcladas[1])
-
+                        if (viewModel.juegoTerminado){
+                            navController.navigate(Routes.Result.route)
+                        }
                     },
                     shape = RoundedCornerShape(10.dp),
                     colors = ButtonDefaults.buttonColors(
@@ -66,7 +72,9 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
                 Button(
                     onClick = {
                         viewModel.responderPregunta(viewModel.respuestasMezcladas[2])
-
+                        if (viewModel.juegoTerminado){
+                            navController.navigate(Routes.Result.route)
+                        }
                     },
                     shape = RoundedCornerShape(10.dp),
                     colors = ButtonDefaults.buttonColors(
@@ -81,7 +89,9 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
                 Button(
                     onClick = {
                         viewModel.responderPregunta(viewModel.respuestasMezcladas[3])
-
+                        if (viewModel.juegoTerminado){
+                            navController.navigate(Routes.Result.route)
+                        }
                     },
                     shape = RoundedCornerShape(10.dp),
                     colors = ButtonDefaults.buttonColors(

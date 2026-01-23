@@ -7,6 +7,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.navigation.compose.rememberNavController
 import com.example.trivialapp_base.model.Pregunta
 import com.example.trivialapp_base.model.ProveedorPreguntas
 
@@ -51,7 +52,6 @@ class GameViewModel : ViewModel() {
     }
 
     private fun cargarSiguientePregunta() {
-        avanzarRonda()
         preguntaActual = preguntasPartida[indicePreguntaActual]
         respuestasMezcladas = listOf(
             preguntaActual!!.respuesta1,
@@ -63,11 +63,17 @@ class GameViewModel : ViewModel() {
     }
 
     fun responderPregunta(respuestaUsuario: String) {
-        avanzarRonda()
         if (respuestaUsuario == preguntaActual!!.respuestaCorrecta){
             puntuacion++
         }
+        avanzarRonda()
+        if (indicePreguntaActual < preguntasPartida.size){
+            cargarSiguientePregunta()
+        }
+        else{
+            juegoTerminado = true
 
+        }
     }
 
     private fun avanzarRonda() {
