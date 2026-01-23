@@ -40,7 +40,10 @@ class GameViewModel : ViewModel() {
         dificultadSeleccionada = dificultad // Sense .value!
     }
     fun iniciarJuego() {
-        preguntasPartida = ProveedorPreguntas.obtenerPreguntas().filter{ it.dificultad == dificultadSeleccionada }
+        preguntasPartida = ProveedorPreguntas.obtenerPreguntas()
+            .filter{ it.dificultad == dificultadSeleccionada }
+            .shuffled()
+            .take(5)
         indicePreguntaActual = 0
         puntuacion = 0
         juegoTerminado = false
@@ -48,6 +51,7 @@ class GameViewModel : ViewModel() {
     }
 
     private fun cargarSiguientePregunta() {
+        avanzarRonda()
         preguntaActual = preguntasPartida[indicePreguntaActual]
         respuestasMezcladas = listOf(
             preguntaActual!!.respuesta1,
@@ -55,7 +59,7 @@ class GameViewModel : ViewModel() {
             preguntaActual!!.respuesta3,
             preguntaActual!!.respuesta4
         ).shuffled()
-        avanzarRonda()
+
     }
 
     fun responderPregunta(respuestaUsuario: String) {
