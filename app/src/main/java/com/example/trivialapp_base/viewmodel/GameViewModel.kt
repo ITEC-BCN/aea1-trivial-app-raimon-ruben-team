@@ -81,10 +81,24 @@ class GameViewModel : ViewModel() {
     }
 
     private fun iniciarTimer() {
-    }
+            timer?.cancel()
+            timer = object : CountDownTimer(TIEMPO_POR_PREGUNTA, 100) {
+                override fun onTick(millisUntilFinished: Long) {
+                    // Actualitzem l'estat directament
+                    tiempoRestante = millisUntilFinished.toFloat() / TIEMPO_POR_PREGUNTA
+                }
 
-    override fun onCleared() {
+                override fun onFinish() {
+                    tiempoRestante = 0f
+                    //
+                }
+            }.start()
+        }
+
+        override fun onCleared() {
+            super.onCleared()
+            timer?.cancel()
+        }
     }
-}
 
 
