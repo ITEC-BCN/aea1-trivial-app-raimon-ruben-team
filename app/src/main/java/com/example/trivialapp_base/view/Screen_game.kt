@@ -32,23 +32,11 @@ import com.example.trivialapp_base.viewmodel.GameViewModel
 @Composable
 fun GameScreen(navController: NavController, viewModel: GameViewModel) {
 
-    Box(modifier = Modifier.fillMaxSize().background(color= Verde)) {
-        Column(
-            modifier = Modifier.align(Alignment.Center),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
-        )
-
+    Box(modifier = Modifier.fillMaxSize().background(Color.Yellow)) {
+        Column(modifier = Modifier.align(Alignment.Center), horizontalAlignment = Alignment.CenterHorizontally)
         {
-            LinearProgressIndicator(progress = {viewModel.tiempoRestante})
-            Spacer(modifier = Modifier.height(30.dp))
-
-            Text(text = "Round: ${viewModel.indicePreguntaActual + 1}/10")
-            Spacer(modifier = Modifier.height(80.dp))
+        Text(text = "Round: ${viewModel.indicePreguntaActual + 1}/10")
         Text(text = "Question: ${viewModel.preguntaActual!!.pregunta}")
-
-            Spacer(modifier = Modifier.height(50.dp))
-
             Row{
                 Button(
                     onClick = {
@@ -85,11 +73,11 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
                 }
             }
             Spacer(modifier = Modifier.height(16.dp))
-            Row {
+            Row{
                 Button(
                     onClick = {
                         viewModel.responderPregunta(viewModel.respuestasMezcladas[2])
-                        if (viewModel.juegoTerminado) {
+                        if (viewModel.juegoTerminado){
                             navController.navigate(Routes.Result.route)
                         }
                     },
@@ -106,7 +94,7 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
                 Button(
                     onClick = {
                         viewModel.responderPregunta(viewModel.respuestasMezcladas[3])
-                        if (viewModel.juegoTerminado) {
+                        if (viewModel.juegoTerminado){
                             navController.navigate(Routes.Result.route)
                         }
                     },
@@ -118,9 +106,6 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
 
                 ) {
                     Text(text = viewModel.respuestasMezcladas[3])
-                }
-                if (viewModel.juegoTerminado) {
-                    navController.navigate(Routes.Result.route)
                 }
             }
         }
