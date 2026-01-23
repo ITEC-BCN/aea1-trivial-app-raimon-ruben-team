@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -30,6 +31,7 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
     Box(modifier = Modifier.fillMaxSize().background(Color.Yellow)) {
         Column(modifier = Modifier.align(Alignment.Center), horizontalAlignment = Alignment.CenterHorizontally)
         {
+            LinearProgressIndicator(progress = {viewModel.tiempoRestante})
         Text(text = "Round: ${viewModel.indicePreguntaActual + 1}/10")
         Text(text = "Question: ${viewModel.preguntaActual!!.pregunta}")
             Row{
@@ -68,11 +70,11 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
                 }
             }
             Spacer(modifier = Modifier.height(16.dp))
-            Row{
+            Row {
                 Button(
                     onClick = {
                         viewModel.responderPregunta(viewModel.respuestasMezcladas[2])
-                        if (viewModel.juegoTerminado){
+                        if (viewModel.juegoTerminado) {
                             navController.navigate(Routes.Result.route)
                         }
                     },
@@ -89,7 +91,7 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
                 Button(
                     onClick = {
                         viewModel.responderPregunta(viewModel.respuestasMezcladas[3])
-                        if (viewModel.juegoTerminado){
+                        if (viewModel.juegoTerminado) {
                             navController.navigate(Routes.Result.route)
                         }
                     },
@@ -101,6 +103,9 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
 
                 ) {
                     Text(text = viewModel.respuestasMezcladas[3])
+                }
+                if (viewModel.juegoTerminado) {
+                    navController.navigate(Routes.Result.route)
                 }
             }
         }
