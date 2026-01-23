@@ -16,18 +16,21 @@ data class Pregunta(
 object ProveedorPreguntas {
     fun obtenerPreguntas(): MutableList<Pregunta> {
         return mutableListOf(
-            Pregunta("¿Capital de Francia?", "Geografía", "Easy", "Madrid", "París", "Berlin", "Roma", "París"),
-            Pregunta("¿Fórmula del agua?", "Ciencia", "Easy", "H2O", "CO2", "O2", "H2O2", "H2O"),
-            Pregunta("¿Quién pintó la Mona Lisa?", "Arte", "Medio", "Picasso", "Van Gogh", "Da Vinci", "Dalí", "Da Vinci"),
-            Pregunta("¿Planeta más grande?", "Ciencia", "Medio", "Tierra", "Marte", "Júpiter", "Saturno", "Júpiter"),
-            Pregunta("¿Año descubrimiento América?", "Historia", "Medio", "1492", "1500", "1485", "1992", "1492"),
-            Pregunta("¿Elemento químico Au?", "Química", "Dificil", "Plata", "Oro", "Cobre", "Aluminio", "Oro"),
-            Pregunta("¿Autor del Quijote?", "Literatura", "Easy", "Cervantes", "Quevedo", "Lope", "Góngora", "Cervantes"),
-            Pregunta("¿Velocidad de la luz?", "Física", "Dificil", "300.000 km/s", "150.000 km/s", "1000 km/s", "Mach 1", "300.000 km/s"),
-            Pregunta("¿Moneda de Japón?", "Economía", "Medio", "Yuan", "Won", "Yen", "Dólar", "Yen"),
-            Pregunta("¿Campeón mundial fútbol 2010?", "Deportes", "Easy", "Brasil", "Alemania", "España", "Italia", "España"),
-            Pregunta("¿Rey de los dioses griegos?", "Mitología", "Easy", "Zeus", "Hades", "Poseidón", "Ares", "Zeus"),
-            Pregunta("¿Hueso más largo del cuerpo?", "Anatomía", "Medio", "Fémur", "Tibia", "Húmero", "Radio", "Fémur")
+            Pregunta("¿Cuál es el planeta más cercano al Sol?", "Ciencia", "Easy", "Venus", "Marte", "Mercurio", "Júpiter", "Mercurio"),
+            Pregunta("¿Cuántos continentes hay en la Tierra?", "Geografía", "Easy", "5", "6", "7", "8", "7"),
+            Pregunta("¿Cuál de estos animales es un mamífero?", "Ciencia", "Easy", "Tiburón", "Pulpo", "Delfín", "Pingüino", "Delfín"),
+            Pregunta("¿Cuál es la capital de España?", "Geografía", "Easy", "Barcelona", "Sevilla", "Valencia", "Madrid", "Madrid"),
+            Pregunta("¿Qué sentido usamos para oír sonidos?", "Ciencia", "Easy", "Vista", "Oído", "Tacto", "Gusto", "Oído"),
+            Pregunta("¿Qué órgano del cuerpo humano se encarga de la respiración?", "Ciencia", "Medium", "Corazón", "Pulmones", "Riñones", "Estómago", "Pulmones"),
+            Pregunta("¿Qué tipo de energía utiliza el Sol?", "Ciencia", "Medium", "Eléctrica", "Nuclear", "Mecánica", "Química", "Nuclear"),
+            Pregunta("¿En qué continente se encuentra el río Amazonas?", "Geografía", "Medium", "África", "Asia", "Europa", "América", "América"),
+            Pregunta("¿Quién fue el primer presidente de Estados Unidos?", "Historia", "Medium", "Abraham Lincoln", "George Washington", "Thomas Jefferson", "Benjamin Franklin", "George Washington"),
+            Pregunta("¿Qué figura geométrica tiene todos sus lados iguales?", "Matemáticas", "Medium", "Rectángulo", "Rombo", "Cuadrado", "Trapecio", "Cuadrado"),
+            Pregunta("¿Qué gas necesitan las plantas para hacer la fotosíntesis?", "Ciencia", "Hard", "Oxígeno", "Nitrógeno", "Dióxido de carbono", "Hidrógeno", "Dióxido de carbono"),
+            Pregunta("¿Qué instrumento se utiliza para medir la temperatura?", "Ciencia", "Hard", "Barómetro", "Termómetro", "Anemómetro", "Higrómetro", "Termómetro"),
+            Pregunta("¿Qué civilización construyó las pirámides de Giza?", "Historia", "Hard", "Romana", "Griega", "Egipcia", "Mesopotámica", "Egipcia"),
+            Pregunta("¿Qué parte del cerebro controla el equilibrio?", "Ciencia", "Hard", "Cerebro", "Cerebelo", "Hipotálamo", "Médula espinal", "Cerebelo"),
+            Pregunta("¿Qué tipo de roca se forma a partir del magma?", "Ciencia", "Hard", "Sedimentaria", "Metamórfica", "Ígnea", "Calcárea", "Ígnea")
         )
     }
 }

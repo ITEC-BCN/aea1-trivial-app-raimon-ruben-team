@@ -111,7 +111,7 @@ fun BotonDesplegable(viewModel: GameViewModel) {
             )
 
             DropdownMenuItem(
-                text = { Text("Average") },
+                text = { Text("Medium") },
                 onClick = {
                     viewModel.setDificultad("Average")
                     expanded = false
