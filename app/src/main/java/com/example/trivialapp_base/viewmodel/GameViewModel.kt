@@ -59,6 +59,7 @@ class GameViewModel : ViewModel() {
             preguntaActual!!.respuesta3,
             preguntaActual!!.respuesta4
         ).shuffled()
+        iniciarTimer()
 
     }
 
@@ -90,7 +91,15 @@ class GameViewModel : ViewModel() {
 
                 override fun onFinish() {
                     tiempoRestante = 0f
-                    //
+                    avanzarRonda()
+                    if (indicePreguntaActual < preguntasPartida.size){
+                        cargarSiguientePregunta()
+                    }
+                    else{
+                        juegoTerminado = true
+
+                    }
+
                 }
             }.start()
         }
