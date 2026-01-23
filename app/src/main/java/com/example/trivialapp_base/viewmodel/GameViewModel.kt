@@ -66,14 +66,15 @@ class GameViewModel : ViewModel() {
         if (respuestaUsuario == preguntaActual!!.respuestaCorrecta){
             puntuacion++
         }
-        avanzarRonda()
-        if (indicePreguntaActual < preguntasPartida.size){
+
+        if (indicePreguntaActual < preguntasPartida.size - 1){
+            avanzarRonda()
             cargarSiguientePregunta()
         }
         else{
             juegoTerminado = true
-
         }
+
     }
 
     private fun avanzarRonda() {
