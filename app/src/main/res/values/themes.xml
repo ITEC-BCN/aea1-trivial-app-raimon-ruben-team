@@ -2,6 +2,9 @@
 <resources>
 
 
+
+
+
     <style name="Theme.TrivialAPP_Base" parent="Theme.SplashScreen">
         <item name="windowSplashScreenAnimatedIcon">@drawable/trivialimg</item>
         <item name="windowSplashScreenBackground">@color/black</item>

@@ -7,7 +7,9 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.navigation.compose.rememberNavController
 import com.example.trivialapp_base.model.Pregunta
+import com.example.trivialapp_base.model.ProveedorPreguntas
 
 class GameViewModel : ViewModel() {
     private var preguntasPartida: List<Pregunta> = emptyList()
@@ -29,7 +31,7 @@ class GameViewModel : ViewModel() {
     var juegoTerminado by mutableStateOf(false)
         private set
 
-    var dificultadSeleccionada by mutableStateOf("Facil")
+    var dificultadSeleccionada by mutableStateOf("Empty")
         private set
 
     private var timer: CountDownTimer? = null
@@ -39,15 +41,43 @@ class GameViewModel : ViewModel() {
         dificultadSeleccionada = dificultad // Sense .value!
     }
     fun iniciarJuego() {
+        preguntasPartida = ProveedorPreguntas.obtenerPreguntas()
+            .filter{ it.dificultad == dificultadSeleccionada }
+            .shuffled()
+            .take(5)
+        indicePreguntaActual = 0
+        puntuacion = 0
+        juegoTerminado = false
+        cargarSiguientePregunta()
     }
 
     private fun cargarSiguientePregunta() {
+        preguntaActual = preguntasPartida[indicePreguntaActual]
+        respuestasMezcladas = listOf(
+            preguntaActual!!.respuesta1,
+            preguntaActual!!.respuesta2,
+            preguntaActual!!.respuesta3,
+            preguntaActual!!.respuesta4
+        ).shuffled()
+
     }
 
     fun responderPregunta(respuestaUsuario: String) {
+        if (respuestaUsuario == preguntaActual!!.respuestaCorrecta){
+            puntuacion++
+        }
+        avanzarRonda()
+        if (indicePreguntaActual < preguntasPartida.size){
+            cargarSiguientePregunta()
+        }
+        else{
+            juegoTerminado = true
+
+        }
     }
 
     private fun avanzarRonda() {
+        indicePreguntaActual++
     }
 
     private fun iniciarTimer() {
