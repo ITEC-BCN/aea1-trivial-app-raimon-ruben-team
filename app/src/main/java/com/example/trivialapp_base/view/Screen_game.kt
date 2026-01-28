@@ -32,9 +32,15 @@ import com.example.trivialapp_base.viewmodel.GameViewModel
 @Composable
 fun GameScreen(navController: NavController, viewModel: GameViewModel) {
 
-    Box(modifier = Modifier.fillMaxSize().background(Color.Yellow)) {
-        Column(modifier = Modifier.align(Alignment.Center), horizontalAlignment = Alignment.CenterHorizontally)
+    Box(modifier = Modifier.fillMaxSize().background(color = Verde)) {
+        Column(
+            modifier = Modifier.align(Alignment.Center),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        )
+
         {
+            LinearProgressIndicator(progress = {viewModel.tiempoRestante})
         Text(text = "Round: ${viewModel.indicePreguntaActual + 1}/10")
         Text(text = "Question: ${viewModel.preguntaActual!!.pregunta}")
             Row{
