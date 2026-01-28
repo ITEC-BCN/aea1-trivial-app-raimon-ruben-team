@@ -11,11 +11,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 import com.example.trivialapp_base.Routes
+import com.example.trivialapp_base.ui.theme.Verde
 
 @Composable
 fun SplashScreen(navController: NavController) {
     Box(
-        modifier = Modifier.fillMaxSize().background(Color.Green)) {
+        modifier = Modifier.fillMaxSize().background(color = Verde)) {
         Text(
             text = "Pantalla 0",
             modifier = Modifier

@@ -19,12 +19,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.trivialapp_base.Routes
+import com.example.trivialapp_base.ui.theme.Verde
 import com.example.trivialapp_base.viewmodel.GameViewModel
 
 @Composable
 fun ResultScreen(navController: NavController, viewModel: GameViewModel) {
     Box(
-        modifier = Modifier.fillMaxSize().background(Color.Yellow)) {
+        modifier = Modifier.fillMaxSize().background(color = Verde)) {
         Column(
             modifier = Modifier.align(Alignment.Center),
             horizontalAlignment = Alignment.CenterHorizontally

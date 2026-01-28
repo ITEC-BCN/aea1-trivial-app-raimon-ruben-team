@@ -44,11 +44,12 @@ import com.example.trivialapp_base.R
 import com.example.trivialapp_base.Routes
 import com.example.trivialapp_base.model.Pregunta
 import com.example.trivialapp_base.viewmodel.GameViewModel
+import com.example.trivialapp_base.ui.theme.Verde
 
 @Composable
 fun MenuScreen(navController: NavController, viewModel: GameViewModel) {
     Box(
-        modifier = Modifier.fillMaxSize().background(Color.Yellow)) {
+        modifier = Modifier.fillMaxSize().background(color = Verde)) {
         Column(modifier = Modifier.align(Alignment.Center), horizontalAlignment = Alignment.CenterHorizontally) {
             Text("Trivial Porsuit", fontSize = 32.sp, fontWeight = FontWeight.Bold)
 

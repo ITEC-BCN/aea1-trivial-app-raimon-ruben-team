@@ -31,7 +31,7 @@ class GameViewModel : ViewModel() {
     var juegoTerminado by mutableStateOf(false)
         private set
 
-    var dificultadSeleccionada by mutableStateOf("Empty")
+    var dificultadSeleccionada by mutableStateOf("Easy")
         private set
 
     private var timer: CountDownTimer? = null
@@ -44,7 +44,7 @@ class GameViewModel : ViewModel() {
         preguntasPartida = ProveedorPreguntas.obtenerPreguntas()
             .filter{ it.dificultad == dificultadSeleccionada }
             .shuffled()
-            .take(5)
+            .take(10)
         indicePreguntaActual = 0
         puntuacion = 0
         juegoTerminado = false
