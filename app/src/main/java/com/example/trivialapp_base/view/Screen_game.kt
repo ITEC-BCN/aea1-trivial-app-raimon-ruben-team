@@ -114,6 +114,9 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
                 ) {
                     Text(text = viewModel.respuestasMezcladas[3])
                 }
+                if (viewModel.juegoTerminado){
+                    navController.navigate(Routes.Result.route)
+                }
             }
         }
 
