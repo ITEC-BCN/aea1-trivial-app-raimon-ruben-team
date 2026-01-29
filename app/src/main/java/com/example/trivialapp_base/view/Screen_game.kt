@@ -44,6 +44,8 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
 
         {
             LinearProgressIndicator(progress = {viewModel.tiempoRestante})
+            Spacer(modifier = Modifier.height(100.dp))
+
         Text(text = "Round: ${viewModel.indicePreguntaActual + 1}/10")
 
         Text(text = "Question: ${viewModel.preguntaActual!!.pregunta}")

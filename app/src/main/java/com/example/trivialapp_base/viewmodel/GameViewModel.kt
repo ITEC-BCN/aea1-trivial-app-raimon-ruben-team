@@ -74,6 +74,7 @@ class GameViewModel : ViewModel() {
         }
         else{
             juegoTerminado = true
+
         }
 
     }
