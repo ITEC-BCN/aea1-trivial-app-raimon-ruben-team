@@ -22,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.trivialapp_base.Routes
 import com.example.trivialapp_base.ui.theme.Crema
@@ -32,7 +33,9 @@ import com.example.trivialapp_base.viewmodel.GameViewModel
 @Composable
 fun GameScreen(navController: NavController, viewModel: GameViewModel) {
 
-    Box(modifier = Modifier.fillMaxSize().background(color = Verde)) {
+    Box(modifier = Modifier
+        .fillMaxSize()
+        .background(color = Verde)) {
         Column(
             modifier = Modifier.align(Alignment.Center),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -52,6 +55,9 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
                             navController.navigate(Routes.Result.route)
                         }
                     },
+                    Modifier
+                        .width(140.dp)
+                        .height(40.dp),
                     shape = RoundedCornerShape(10.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color.Blue,
@@ -69,6 +75,9 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
                             navController.navigate(Routes.Result.route)
                         }
                     },
+                    Modifier
+                        .width(140.dp)
+                        .height(40.dp),
                     shape = RoundedCornerShape(10.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color.Blue,
@@ -88,6 +97,9 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
                             navController.navigate(Routes.Result.route)
                         }
                     },
+                    Modifier
+                        .width(140.dp)
+                        .height(40.dp),
                     shape = RoundedCornerShape(10.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color.Blue,
@@ -105,6 +117,10 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
                             navController.navigate(Routes.Result.route)
                         }
                     },
+                    Modifier
+                        .width(140.dp)
+                        .height(40.dp),
+
                     shape = RoundedCornerShape(10.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color.Blue,
