@@ -42,6 +42,7 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
         {
             LinearProgressIndicator(progress = {viewModel.tiempoRestante})
         Text(text = "Round: ${viewModel.indicePreguntaActual + 1}/10")
+
         Text(text = "Question: ${viewModel.preguntaActual!!.pregunta}")
             Row{
                 Button(
@@ -112,6 +113,9 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
 
                 ) {
                     Text(text = viewModel.respuestasMezcladas[3])
+                }
+                if (viewModel.juegoTerminado){
+                    navController.navigate(Routes.Result.route)
                 }
             }
         }

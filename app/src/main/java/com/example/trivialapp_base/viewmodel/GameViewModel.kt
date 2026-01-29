@@ -92,8 +92,8 @@ class GameViewModel : ViewModel() {
 
                 override fun onFinish() {
                     tiempoRestante = 0f
-                    avanzarRonda()
-                    if (indicePreguntaActual < preguntasPartida.size){
+                    if (indicePreguntaActual < preguntasPartida.size - 1){
+                        avanzarRonda()
                         cargarSiguientePregunta()
                     }
                     else{
